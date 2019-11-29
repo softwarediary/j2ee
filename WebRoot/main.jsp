@@ -27,6 +27,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <body>
   	<s:form>
   		<table>
+			<tr>
+  				<td>习惯名称</td>
+  				<td>激励语</td>
+  			</tr>
   			<c:forEach var="habit" items="${habitList}">
   				<tr>
   					<td><c:out value="${habit.hname}"></c:out></td>
@@ -35,5 +39,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   			</c:forEach>
   		</table>
   	</s:form>
+	<s:a href="index.jsp">添加习惯</s:a>
   </body>
 </html>
