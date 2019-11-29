@@ -51,13 +51,13 @@ public class HabitDao {
         return habit;
     }
     
-    public ArrayList<Habit> QueryFood(String hname) { 
+    public ArrayList<Habit> QueryHabit(String hname) { 
     	Session s = factory.getCurrentSession();
     	String hql = "From Habit habit where 1=1";
     	if(!hname.equals("")) hql = hql + " and habit.hname like '%" + hname + "%'";
     	Query q = s.createQuery(hql);
-    	List foodList = q.list();
-    	return (ArrayList<Habit>) foodList;
+    	List habitList = q.list();
+    	return (ArrayList<Habit>) habitList;
     }
 
 }
