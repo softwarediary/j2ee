@@ -1,6 +1,5 @@
 CREATE DATABASE `dingdong`;					#叮咚打卡app数据库
 USE `dingdong`;
-use food;
 CREATE TABLE `user` (#用户表
   `uid` int(11) NOT NULL AUTO_INCREMENT,	#用户id
   `tele` int(11) NOT NULL,					#用户手机号
