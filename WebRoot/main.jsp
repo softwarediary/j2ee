@@ -28,6 +28,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
+	<s:form action="dd/dd_selectHabit" method="post">
+  		<input title="关键词" name="hname" placeholder="输入关键词...">  
+  		<button type="submit">搜  索</button>
+   	 </s:form>
   	<s:form>
   		<table>
 			<tr>
