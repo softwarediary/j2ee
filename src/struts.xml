@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE struts PUBLIC
     "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
     "http://struts.apache.org/dtds/struts-2.0.dtd">
@@ -14,22 +14,27 @@
 	 <package name="dd" namespace="/dd" extends="struts-default">
 	        <action name="dd_*" class="habitAction" method="{1}">
 	        	<result name="show_habit">/main.jsp</result>
-	        	<result name="message">/message.jsp</result>
-	          
-	        </action>
-	        
+	        	<result name="message">/message.jsp</result>  
+	        	<result name="daka_success">/daka_message.jsp</result>
+	        	<result name="input">/main.jsp</result>
+	        	<result name="edit_view">/edit.jsp</result>
+	        	<result name="edit_message">/edit_message.jsp</result>
+	       		<result name="delete_message">/delete_message.jsp</result>
+	        	
+	        	
+	        </action>  
 	        <action name="reward_*" class="rewardAction" method="{1}">
 	        	<result name="messager">/messager.jsp</result>
 	        	<result name="show_reward">/showreward.jsp</result>	          
 	        </action>
-	        
-	        <action name="user_*" class="userAction" method="{1}">
+	   	        <action name="user_*" class="userAction" method="{1}">
         		<result name="succseereg">/succ.jsp</result>
         		<result name="input">/login.jsp</result>
 				<result name="success">/succreg.jsp</result>
         	</action>
+        	</package>
 	        
-	 </package>
+	
 
         
 	 
