@@ -69,4 +69,16 @@ public class HabitAction extends ActionSupport{
     	habitDao.deleteHabit(habit.getHid());
         return "delete_message";
     }
+	private String hname;
+	 public String getHname(){
+		 return hname;
+	 }
+	 public void setHname(String hname){
+		 this.hname=hname;
+	 }
+	 
+	 public String selectHabit(){
+		 habitList=habitDao.QueryHabit(hname);
+		 return "show_habit";
+	 }
 }
