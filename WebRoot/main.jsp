@@ -4,6 +4,9 @@
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+  request.setCharacterEncoding("UTF-8");
+  response.setCharacterEncoding("UTF-8");
+
 %>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -30,11 +33,22 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<tr>
   				<td>习惯名称</td>
   				<td>激励语</td>
+  				<td>已完成次数</td>
+  				<td>目标次数</td>
   			</tr>
-  			<c:forEach var="habit" items="${habitList}">
+  			<c:forEach var="habit" items="${habitList}" varStatus="status">
   				<tr>
   					<td><c:out value="${habit.hname}"></c:out></td>
   					<td><c:out value="${habit.htext}"></c:out></td>
+  					<td><c:out value="${habit.finishedNum}" ></c:out></td>
+  					<td><c:out value="${habit.totalNum}" ></c:out></td>
+  				
+					<td><a href="dd/dd_daka?habit.hid=${habit.hid}">打卡</a></td>
+					<td><a href="dd/dd_showEdit?habit.hid=${habit.hid}">编辑</a></td>
+					
+  					<td><a href="dd/dd_deleteHabit?habit.hid=${habit.hid}">删除</a></td>
+  					
+  					
   				</tr>
   			</c:forEach>
   		</table>
