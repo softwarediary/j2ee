@@ -36,17 +36,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   	<s:form>
   		<table>
 			<tr>
-				<td>序号</td>
-  				<td>习惯名称</td>
-  				<td>激励语</td>
-  				<td>已完成次数</td>
-  				<td>目标次数</td>
+				<th>序号</th>
+  				<th>习惯名称</th>
+  				<th>激励语</th>
+  				<th>已完成次数</th>
+   				<th>目标次数</th>
   			</tr>
   	
   			<c:forEach var="habit" items="${habitList}" varStatus="status">
   				<tr>
   					<th><c:out value="${status.index + 1}"></c:out></th>
-  					<td><c:out value="${habit.hname}"></c:out></td>
+  					<td><a href="dd/dd_showDetail?habit.hid=${habit.hid}"><c:out value="${habit.hname} "></c:out></a></td>
   					<td><c:out value="${habit.htext}"></c:out></td>
   					<td><c:out value="${habit.finishedNum}" ></c:out></td>
   					<td><c:out value="${habit.totalNum}" ></c:out></td>
