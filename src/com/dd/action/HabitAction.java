@@ -81,4 +81,9 @@ public class HabitAction extends ActionSupport{
 		 habitList=habitDao.QueryHabit(hname);
 		 return "show_habit";
 	 }
+	
+	public String showDetail(){
+		 habit=habitDao.GetHabitById(habit.getHid());
+		 return "detail_view";
+	 }
 }
