@@ -10,41 +10,58 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 %>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html>
-  <head>
-    <base href="<%=basePath%>">
+<html> 
+	<head>
+    	<base href="<%=basePath%>">
     
-    <title>My JSP 'main.jsp' starting page</title>
+    	<title>My JSP 'main.jsp' starting page</title>
     
-	<meta http-equiv="pragma" content="no-cache">
-	<meta http-equiv="cache-control" content="no-cache">
-	<meta http-equiv="expires" content="0">    
-	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
-	<meta http-equiv="description" content="This is my page">
-	<!--
-	<link rel="stylesheet" type="text/css" href="styles.css">
-	-->
+		<meta http-equiv="pragma" content="no-cache">
+		<meta http-equiv="cache-control" content="no-cache">
+		<meta http-equiv="expires" content="0">    
+		<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+		<meta http-equiv="description" content="This is my page">
 
-  </head>
-  
-  <body>
-    <body>
-  	<s:form action="dd/dd_selectHabit" method="post">
-   		<input title="关键词" name="hname" placeholder="输入关键词...">  
-   		<button type="submit">搜  索</button>
-    	 </s:form>
-  	<s:form>
-  		<table>
-			<tr>
-				<th>序号</th>
+		<link rel="stylesheet" type="text/css" href="<%=basePath%>css/main.css">
+	
+ 	</head>
+<body>
+    <header>
+       <div class="account">
+         <c:choose>
+	       <c:when test="${customer.name ==null}">
+	         <a href="reg.jsp">注册</a>
+	         <a href="login.jsp">登录</a>
+	       </c:when>
+	       <c:otherwise>
+	         <c:out value="${customer.name}"></c:out>, 欢迎您!
+	       </c:otherwise>
+	     </c:choose>
+		    
+       </div>
+       <div class="logo"></div>		    
+    </header>
+  	<main>
+  		<s:form action="dd/dd_selectHabit" method="post" >
+	      	<div>
+	      		<button type="submit" class="search-go" value="查询">查询</button>
+	      		<input class="search" type="text" name="hname" placeholder="请输入关键词">
+	      		
+	      	</div>
+
+  			<table>
+				<tr>
+				<th></th>
   				<th>习惯名称</th>
   				<th>激励语</th>
   				<th>已完成次数</th>
    				<th>目标次数</th>
-  			</tr>
+   				<th></th>
+   				<th><s:a href="index.jsp">添加习惯</s:a></th>
+  				</tr>
   	
-  			<c:forEach var="habit" items="${habitList}" varStatus="status">
-  				<tr>
+  				<c:forEach var="habit" items="${habitList}" varStatus="status">
+  					<tr>
   					<th><c:out value="${status.index + 1}"></c:out></th>
   					<td><a href="dd/dd_showDetail?habit.hid=${habit.hid}"><c:out value="${habit.hname} "></c:out></a></td>
   					<td><c:out value="${habit.htext}"></c:out></td>
@@ -57,10 +74,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   					<td><a href="dd/dd_deleteHabit?habit.hid=${habit.hid}">删除</a></td>
   					
   					
-  				</tr>
-  			</c:forEach>
-  		</table>
-  	</s:form>
-	<s:a href="index.jsp">添加习惯</s:a>
-  </body>
+  					</tr>
+  				
+  				</c:forEach>
+ 
+  			</table>
+  		</s:form>
+		
+	</main>
+ </body>
 </html>

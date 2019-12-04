@@ -17,23 +17,38 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<meta http-equiv="expires" content="0">    
 	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 	<meta http-equiv="description" content="This is my page">
-	<!--  
-	<link rel="stylesheet" href="<%=basePath%>css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="<%=basePath%>css/font-awesome.css">
-	<link rel="stylesheet" type="text/css" href="<%=basePath%>css/main.css">
-	
-	<link rel="shortcut icon" href="<%=basePath%>images/logo.png">
-	-->
+
+		<link rel="stylesheet" type="text/css" href="<%=basePath%>css/main.css">
+
   </head>
   
   <body>
+  <header>
+       <div class="account">
+      <a href="reg.jsp">注册</a>
+      </div>
+       <div class="logo"></div>
+		    
+    </header>
+    <main>
     <s:form action="dd/user_login" method="post">
-         <input type="text" name="user.uname" placeholder="请输入用户名">        
-         <s:fielderror fieldName="user.uname" cssClass="fielderror"/>
-         <input type="password" name="user.passwd" placeholder="请输入密码">
-         <s:fielderror fieldName="user.passwd" cssClass="fielderror"/>
-	      <button type="submit">登 录 </button>
+    <table>
+    <tr></tr>
+    <tr></tr>
+    <tr></tr>
+    <tr></tr>
+    <tr>
+         <td>用户名：<input type="text" name="user.uname" placeholder="请输入用户名"> </td>       
+    </tr>
+    <tr>
+        <td>密 码：<input type="password" name="user.passwd" placeholder="请输入密码"></td>
+      </tr>
+      <tr>
+	     <td><button type="submit" class="login-go">登 录 </button></td>
+	      </tr>
+	      </table>
 	    </s:form>
-   
+	    
+   </main>
   </body>
 </html>

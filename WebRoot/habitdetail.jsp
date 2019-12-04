@@ -18,18 +18,37 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<meta http-equiv="expires" content="0">    
 	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 	<meta http-equiv="description" content="This is my page">
-	<!--
-	<link rel="stylesheet" type="text/css" href="styles.css">
-	-->
+	
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+
 
   </head>
   
   <body>
-    <p>习惯名称:<c:out value="${habit.hname}"></c:out></p>
-    <p>打卡次数:<c:out value="${habit.finishedNum}" ></c:out></p>
-    <p>目标天数:<c:out value="${habit.totalNum}" ></c:out></p>
-    <p>积分值:<c:out value="${habit.hvalue}"></c:out></p>
-    <p>激励语:<c:out value="${habit.htext}"></c:out></p>
-    <s:a href="dd/dd_showHabit">返回</s:a>
+  <header>
+       <div class="account">
+         <c:choose>
+	       <c:when test="${customer.name ==null}">
+	         <a href="reg.jsp">注册</a>
+	         <a href="login.jsp">登录</a>
+	       </c:when>
+	       <c:otherwise>
+	         <c:out value="${customer.name}"></c:out>, 欢迎您!
+	       </c:otherwise>
+	     </c:choose>
+		    
+       </div>
+       <div class="logo"></div>		    
+    </header>
+  <main>
+  <table>
+   <tr><td><p>习惯名称:</td><td><c:out value="${habit.hname}"></c:out></p></td></tr>
+    <tr><td><p>打卡次数:</td><td><c:out value="${habit.finishedNum}" ></c:out></p></td></tr>
+    <tr><td><p>目标天数:</td><td><c:out value="${habit.totalNum}" ></c:out></p></td></tr>
+    <tr><td><p>积分值:</td><td><c:out value="${habit.hvalue}"></c:out></p></td></tr>
+    <tr><td><p>激励语:</td><td><c:out value="${habit.htext}"></c:out></p></td></tr>
+    <tr><td colspan="3"><s:a href="dd/dd_showHabit">返回</s:a></td></tr>
+    </table>
+    </main>
   </body>
 </html>

@@ -31,15 +31,24 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <body>
   
     <header>
-       <div><i ></i> 用户注册</div>	    
-    </header>  
+       <div class="account">
+      <a href="login.jsp">登录</a>
+      </div>
+       <div class="logo"></div>
+		    
+    </header>
+    <main> 
 	    <s:form action="dd/user_reg" method="post">
-	        <s:textfield name="user.uname" label="用户名"></s:textfield>
-     		<s:textfield name="user.passwd" label="密码"></s:textfield>
-     		<s:textfield name="user.tele" label="手机号"></s:textfield>
-     		<s:submit value="注册"></s:submit>
+	    <table>
+	     
+	        <tr><td>用户名：<input type="text" name="user.uname" placeholder="请输入用户名"></td></tr>
+     		<tr><td>密 码：<input type="text" name="user.uname" placeholder="请输入密码"></td></tr>
+     		<tr><td>手机号：<input type="text" name="user.tele" placeholder="请输入手机号"></td></tr>
+     		<tr><td><button type="submit" class="login-go">注册 </button></td></tr>
+
+     		</table>
 	    </s:form>
-	    
+	  </main>  
 <!--    <script src="<%=basePath%>js/jquery.min.js"></script>
     <script src="<%=basePath%>js/bootstrap.min.js"></script> -->
     <!-- -------以下这个css是bootstrap Validator插件的css--------- -->
