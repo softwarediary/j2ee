@@ -26,12 +26,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <header>
        <div class="account">
          <c:choose>
-	       <c:when test="${customer.name ==null}">
+	       <c:when test="${user.uname ==null}">
 	         <a href="reg.jsp">注册</a>
 	         <a href="login.jsp">登录</a>
 	       </c:when>
 	       <c:otherwise>
-	         <c:out value="${customer.name}"></c:out>, 欢迎您!
+	         <c:out value="${user.uname}"></c:out>, 欢迎您!
 	       </c:otherwise>
 	     </c:choose>
 		    
@@ -49,7 +49,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
      <s:textfield name="habit.aimdays" label="目标天数"></s:textfield>
      <s:textfield name="habit.hvalue" label="积分值"></s:textfield>
      <s:textfield name="habit.htext" label="激励语"></s:textfield>  
-     <tr><td colspan="2"><button type="submit" class="login-go">保存 </button></td></tr>
+     <tr>
+<td colspan="2"><button type="submit" class="login-go">保存 </button></td>
+<td colspan="3"><s:a href="dd/dd_showHabit">返回</s:a></td>
+</tr>
      </table>
     </s:form>
     </main>
