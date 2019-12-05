@@ -28,12 +28,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <header>
        <div class="account">
          <c:choose>
-	       <c:when test="${customer.name ==null}">
+	       <c:when test="${user.uname ==null}">
 	         <a href="reg.jsp">注册</a>
 	         <a href="login.jsp">登录</a>
 	       </c:when>
 	       <c:otherwise>
-	         <c:out value="${customer.name}"></c:out>, 欢迎您!
+	         <c:out value="${user.uname}"></c:out>, 欢迎您!
 	       </c:otherwise>
 	     </c:choose>
 		    
