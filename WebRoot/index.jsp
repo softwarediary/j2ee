@@ -46,7 +46,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
      <s:textfield name="habit.fre" label="习惯频率"></s:textfield> -->
   	<tr><td>打卡次数：<input type="text" name="habit.totalNum" ></td></tr>
   	<tr><td>目标天数：<input type="text" name="habit.aimdays" ></td></tr>
-  	<tr><td>积分值 ：：<input type="text" name="habit.hvalue" ></td></tr>
+  	<tr><td>积分值 ：<input type="text" name="habit.hvalue" ></td></tr>
   	<tr><td>激励语 ：<input type="text" name="habit.htext" ></td></tr>
 
      <tr><td><button type="submit" class="login-go">保存 </button></td></tr>
