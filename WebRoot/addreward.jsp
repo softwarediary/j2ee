@@ -53,6 +53,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</tr>
 	<tr>
 		<td><button type="submit" class="login-go">提  交 </button></td>
+		<td><s:a href="dd/reward_showReward">返回</s:a></td>
 	</tr>
 	</table>
 	</s:form>
