@@ -40,5 +40,39 @@ public class RewardAction extends ActionSupport{
 		rewardList=rewardDao.QueryAllReward();
 		return "show_reward";
 	}
+	
+	public String editReward() throws Exception {
+    	System.out.println("编辑奖励");
+    	Reward r=rewardDao.GetRewardById(reward.getRid());
+    	rewardDao.UpdateReward(reward);
+        return "edit_messager";
+    }
+ public String showEdit() throws Exception {
+	 reward = rewardDao.GetRewardById(reward.getRid());
+	 return "edit_viewr";
+ }
+ 
+ public String deleteReward() throws Exception {
+	 rewardDao.deleteReward(reward.getRid());
+	 return "delete_messager";
+ }
+
+ private String rname;
+ public String getRname(){
+	 return rname;
+ }
+ public void setRname(String rname){
+	 this.rname=rname;
+ }
+ 
+ public String selectReward(){
+	 rewardList=rewardDao.QueryReward(rname);
+	 return "show_reward";
+ }
+ 
+ public String showDetail(){
+	 reward=rewardDao.GetRewardById(reward.getRid());
+	 return "detail_viewr";
+ }
 
 }
