@@ -11,7 +11,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>My JSP 'showreward.jsp' starting page</title>
+   <title>奖励</title>
     
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
@@ -26,15 +26,29 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-    <s:form>
-  		<table>
-  			<c:forEach var="reward" items="${rewardList}">
-  				<tr>
+    <main>
+    <s:form action="dd/reward_showReward"  method="post">
+  			<table >
+  				<tr></tr>
+     			<tr></tr>
+     			<tr></tr>
+     			<tr><th>奖励名称</th>
+   				<th>所值积分</th>
+   				<th>领取</th>
+   				<th><s:a href="addreward.jsp">添加奖励 </s:a></th>
+     			</tr>
+     			<c:forEach var="reward" items="${rewardList}">
+     			<tr>
   					<td><c:out value="${reward.rcontent}"></c:out></td>
   					<td><c:out value="${reward.rvalue}"></c:out></td>
+  					<td><input type="button" value="领取"></td>
   				</tr>
+  				<tr></tr>
+  				
   			</c:forEach>
-  		</table>
+  			</table>
+  		
   	</s:form>
+  	</main>
   </body>
 </html>
