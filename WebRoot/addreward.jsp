@@ -39,7 +39,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <div class="logo"></div>		    	    
   </header> 
      <main>
-    </s:form>
 		<s:form action="dd/reward_addReward" method="post" >
 		 <table>
      <tr></tr>
