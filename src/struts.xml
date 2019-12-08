@@ -16,7 +16,6 @@
 	        	<result name="show_habit">/main.jsp</result>
 	        	<result name="message">/message.jsp</result>  
 	        	<result name="daka_success">/daka_message.jsp</result>
-	        	<result name="input">/main.jsp</result>
 	        	<result name="edit_view">/edit.jsp</result>
 	        	<result name="edit_message">/edit_message.jsp</result>
 	       		<result name="delete_message">/delete_message.jsp</result>
@@ -26,7 +25,11 @@
 	        </action>  
 	        <action name="reward_*" class="rewardAction" method="{1}">
 	        	<result name="messager">/messager.jsp</result>
-	        	<result name="show_reward">/showreward.jsp</result>	          
+	        	<result name="show_reward">/showreward.jsp</result>
+	        	<result name="edit_viewr">/editr.jsp</result>
+	        	<result name="edit_messager">/edit_messager.jsp</result>
+	       		<result name="delete_messager">/delete_messager.jsp</result>
+	       		<result name="detail_viewr">/rewarddetail.jsp</result> 
 	        </action>
 	   	        <action name="user_*" class="userAction" method="{1}">
         		<result name="succseereg">/succ.jsp</result>
