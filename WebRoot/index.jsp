@@ -49,7 +49,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   	<tr><td>积分值 ：<input type="text" name="habit.hvalue" ></td></tr>
   	<tr><td>激励语 ：<input type="text" name="habit.htext" ></td></tr>
 
-     <tr><td><button type="submit" class="login-go">保存 </button></td></tr>
+     <tr><td><button type="submit" class="login-go">保存 </button></td>
+	  <td><s:a href="dd/dd_showHabit">返回</s:a></td></tr>
      
      </table>
     </s:form>
