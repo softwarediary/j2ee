@@ -23,6 +23,17 @@ public class RewardDao {
 		
 	}
 	
+	public void deleteReward(Integer rid){
+		Session s= factory.getCurrentSession();
+		Object reward= s.load(Reward.class, rid);
+		s.delete(reward);
+		
+	}
+	
+    public void UpdateReward(Reward reward) throws Exception {
+        Session s = factory.getCurrentSession();
+        s.update(reward);
+    }
 	public ArrayList<Reward> QueryAllReward() {
         Session s = factory.getCurrentSession();
         String hql = "From Reward";
