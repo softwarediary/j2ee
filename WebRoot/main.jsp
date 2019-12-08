@@ -44,7 +44,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   	<main>
   		<s:form action="dd/dd_selectHabit" method="post" >
 	      	<div>
-			<tr><td><s:a href="showreward.jsp">查看奖励 </s:a></td>
+			<tr><td><s:a href="dd/reward_showReward">查看奖励 </s:a></td>
 			<td><s:a href="index.jsp">添加习惯</s:a></td></tr>
 	      		<button type="submit" class="search-go" value="查询">查询</button>
 	      		<input class="search" type="text" name="hname" placeholder="请输入关键词">
