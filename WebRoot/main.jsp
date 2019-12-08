@@ -14,7 +14,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<head>
     	<base href="<%=basePath%>">
     
-    	<title>My JSP 'main.jsp' starting page</title>
+    	<title>叮咚</title>
     
 		<meta http-equiv="pragma" content="no-cache">
 		<meta http-equiv="cache-control" content="no-cache">
@@ -44,6 +44,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   	<main>
   		<s:form action="dd/dd_selectHabit" method="post" >
 	      	<div>
+			<tr><td><s:a href="showreward.jsp">查看奖励 </s:a></td>
+			<td><s:a href="addhabit.jsp">添加习惯</s:a></td></tr>
 	      		<button type="submit" class="search-go" value="查询">查询</button>
 	      		<input class="search" type="text" name="hname" placeholder="请输入关键词">
 	      		
@@ -57,7 +59,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   				<th>已完成次数</th>
    				<th>目标次数</th>
    				<th></th>
-   				<th><s:a href="index.jsp">添加习惯</s:a></th>
   				</tr>
   	
   				<c:forEach var="habit" items="${habitList}" varStatus="status">
