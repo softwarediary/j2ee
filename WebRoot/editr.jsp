@@ -11,7 +11,7 @@
    <head>
      <base href="<%=basePath%>">
 
-     <title>欢迎使用叮咚</title>
+     <title>奖励编辑</title>
  	<meta http-equiv="pragma" content="no-cache">
  	<meta http-equiv="cache-control" content="no-cache">
  	<meta http-equiv="expires" content="0">    
