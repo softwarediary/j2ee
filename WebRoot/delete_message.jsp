@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*" pageEncoding="GB2312"%>
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -9,7 +9,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>My JSP 'message.jsp' starting page</title>
+    <title>åˆ é™¤æˆåŠŸ</title>
     
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
@@ -24,6 +24,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-    ³É¹¦É¾³ıÒ»¸öÏ°¹ß¡£ <br>
+        åˆ é™¤æˆåŠŸï¼ <br>
   </body>
 </html>
