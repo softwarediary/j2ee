@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.dd.model.Habit;
+import com.dd.model.User;
 
 @Service @Transactional
 
@@ -37,12 +38,21 @@ public class HabitDao {
         s.update(habit);
     }
     
-    public ArrayList<Habit> QueryAllHabit() {
+    /*public ArrayList<Habit> QueryAllHabit() {
         Session s = factory.getCurrentSession();
         String hql = "From Habit";
         Query q = s.createQuery(hql);
         List habitList = q.list();
         return (ArrayList<Habit>) habitList;
+    }*/
+    public ArrayList<Habit> QueryAllHabit(User user) {
+    	Session s = factory.getCurrentSession();
+    	String hql = "From Habit habit where 1=1";
+    	if(null != user && user.getUid()!=0) 
+    		hql = hql + " and habit.user.uid like '%" + user.getUid() + "%'";
+    	Query q = s.createQuery(hql);
+    	List habitList = q.list();
+    	return (ArrayList<Habit>) habitList;
     }
     
     public Habit GetHabitById(Integer hid) {
@@ -51,10 +61,13 @@ public class HabitDao {
         return habit;
     }
     
-    public ArrayList<Habit> QueryHabit(String hname) { 
+    public ArrayList<Habit> QueryHabit(User user,String hname) { 
     	Session s = factory.getCurrentSession();
     	String hql = "From Habit habit where 1=1";
-    	if(!hname.equals("")) hql = hql + " and habit.hname like '%" + hname + "%'";
+    	if(null != user && user.getUid()!=0) 
+    		hql = hql + " and habit.user.uid like '%" + user.getUid() + "%'";
+    	if(!hname.equals(" ")) 
+    		hql = hql + " and habit.hname like '%" + hname + "%'";
     	Query q = s.createQuery(hql);
     	List habitList = q.list();
     	return (ArrayList<Habit>) habitList;
