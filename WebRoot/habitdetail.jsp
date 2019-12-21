@@ -44,10 +44,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <table>
    <tr><td><p>习惯名称:</td><td><c:out value="${habit.hname}"></c:out></p></td></tr>
     <tr><td><p>打卡次数:</td><td><c:out value="${habit.finishedNum}" ></c:out></p></td></tr>
-    <tr><td><p>目标天数:</td><td><c:out value="${habit.totalNum}" ></c:out></p></td></tr>
+    <tr><td><p>目标次数:</td><td><c:out value="${habit.totalNum}" ></c:out></p></td></tr>
     <tr><td><p>积分值:</td><td><c:out value="${habit.hvalue}"></c:out></p></td></tr>
     <tr><td><p>激励语:</td><td><c:out value="${habit.htext}"></c:out></p></td></tr>
-    <tr><td colspan="3"><s:a href="dd/dd_showHabit">返回</s:a></td></tr>
+    <tr><td colspan="3"><a href="dd/dd_showHabit?user.uname=${user.uname }">返回</a></td></tr>
     </table>
     </main>
   </body>
