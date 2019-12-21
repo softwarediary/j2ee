@@ -1,6 +1,6 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
-
+ <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -42,15 +42,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <s:form action="dd/dd_addHabit" method="post">
   <table>
   	<tr><td>习惯名称：<input type="text" name="habit.hname" ></td></tr>
-  	 <!-- <s:textfield name="habit.htype" label="习惯类型"></s:textfield>
-     <s:textfield name="habit.fre" label="习惯频率"></s:textfield> -->
-  	<tr><td>打卡次数：<input type="text" name="habit.totalNum" ></td></tr>
-  	<tr><td>目标天数：<input type="text" name="habit.aimdays" ></td></tr>
-  	<tr><td>积分值 ：<input type="text" name="habit.hvalue" ></td></tr>
-  	<tr><td>激励语 ：<input type="text" name="habit.htext" ></td></tr>
+   	<tr><td>目标打卡次数：<input type="text" name="habit.totalNum" ></td></tr>
+   	<!-- <tr><td>目标天数：<input type="text" name="habit.aimdays" ></td></tr> -->
+   	<tr><td>积分值 ：<input type="text" name="habit.hvalue" ></td></tr>
+   	<tr><td>激励语 ：<input type="text" name="habit.htext" ></td></tr>
+   	<tr><td><input type="hidden" name="user.uname" value="${user.uname }"></td></tr>
 
-     <tr><td><button type="submit" class="login-go">保存 </button></td>
-	  <td><s:a href="dd/dd_showHabit">返回</s:a></td></tr>
+      <tr><td><button type="submit" class="login-go">保存 </button></td>
+      <td><a href="dd/dd_showHabit?user.uname=${user.uname }">返回</a></td></tr>
      
      </table>
     </s:form>
