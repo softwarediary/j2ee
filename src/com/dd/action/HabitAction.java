@@ -65,10 +65,10 @@ public class HabitAction extends ActionSupport{
 	}
 	
 	 public String editHabit() throws Exception {
-	    	System.out.println("ç¼–è¾‘ä¹ æƒ¯");
+	    	System.out.println("±à¼­Ï°¹ß");
 	    	Habit h=habitDao.GetHabitById(habit.getHid());
 	    	user=userDao.QueryUserInfo(user.getUname()).get(0);
-			habit.setUser(user);
+	    	habit.setUser(user);
 	    	habit.setFinishedNum(h.getFinishedNum());
 	    	habitDao.UpdateHabit(habit);
 	        return "edit_message";
@@ -77,11 +77,17 @@ public class HabitAction extends ActionSupport{
 		 habit = habitDao.GetHabitById(habit.getHid());
 		 return "edit_view";
 	 }
+
 	 public String daka() throws Exception {
 		 Habit h=habitDao.GetHabitById(habit.getHid());
+		 System.out.println("hhh"+user.getUname());
+
+		 user=userDao.QueryUserInfo(user.getUname()).get(0); 
 		 h.setFinishedNum(h.getFinishedNum()+1);
+		 user.setUvalue(user.getUvalue()+h.getHvalue());
+		 userDao.updateUser(user);
 		 habitDao.UpdateHabit(h);
-		 System.out.println("æˆåŠŸæ‰“å¡ä¸€ä¸ªä¹ æƒ¯");
+		 System.out.println("³É¹¦´ò¿¨Ò»¸öÏ°¹ß"+user.getUvalue()+"  hhh");
 		 return "daka_success";
 	 }
 	 public String deleteHabit() throws Exception {
