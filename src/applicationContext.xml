@@ -39,6 +39,7 @@
 			      <value>com/dd/model/Habit.hbm.xml</value>
 			      <value>com/dd/model/Reward.hbm.xml</value>
 			      <value>com/dd/model/User.hbm.xml</value>
+			      <value>com/dd/model/Ur.hbm.xml</value>
 
 			    </list>
 		</property>
