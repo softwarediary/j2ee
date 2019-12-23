@@ -1,6 +1,7 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
  <%@ taglib prefix="s" uri="/struts-tags"%>
   <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+ 
 
  <%
  String path = request.getContextPath();
@@ -12,7 +13,7 @@
    <head>
      <base href="<%=basePath%>">
 
-     <title>编辑习惯</title>
+     <title>My JSP 'index.jsp' starting page</title>
  	<meta http-equiv="pragma" content="no-cache">
  	<meta http-equiv="cache-control" content="no-cache">
  	<meta http-equiv="expires" content="0">    
@@ -44,6 +45,8 @@
    <table>
    	<s:hidden name="habit.hid"></s:hidden> 
       <s:textfield name="habit.hname" label="习惯名称"></s:textfield>
+      <!-- <s:textfield name="habit.htype" label="习惯类型"></s:textfield>
+      <s:textfield name="habit.fre" label="习惯频率"></s:textfield> -->
       <s:textfield name="habit.finishedNum" label="打卡次数"></s:textfield>
       <s:textfield name="habit.totalNum" label="目标次数"></s:textfield>
       <s:textfield name="habit.hvalue" label="积分值"></s:textfield>

@@ -16,7 +16,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<meta http-equiv="expires" content="0">    
 	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 	<meta http-equiv="description" content="This is my page">
-	<meta http-equiv="refresh" content="2;url=dd/reward_showReward">
+	<meta http-equiv="refresh" content="2;url=dd/reward_showReward?user.uname=${user.uname }&user.uvalue=${user.uvalue}">
 	<!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->

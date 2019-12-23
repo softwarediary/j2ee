@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ page language="java" import="java.util.*" pageEncoding="GB2312"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -9,14 +9,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>æˆåŠŸæ·»åŠ ä¹ æƒ¯</title>
+    <title>My JSP 'message.jsp' starting page</title>
     
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
 	<meta http-equiv="expires" content="0">    
 	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 	<meta http-equiv="description" content="This is my page">
-	<meta http-equiv="refresh" content="2;url=dd/dd_showHabit?user.uname=${user.uname }">
+	<meta http-equiv="refresh" content="2;url=dd/dd_showHabit?user.uname=${user.uname }&user.uvalue=${user.uvalue}">
 	<!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
@@ -24,6 +24,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-    æˆåŠŸæ·»åŠ ä¸€ä¸ªä¹ æƒ¯ã€‚<br>
+    ³É¹¦Ìí¼ÓÒ»¸öÏ°¹ß¡£ <br>
   </body>
 </html>

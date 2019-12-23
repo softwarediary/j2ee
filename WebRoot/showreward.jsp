@@ -35,6 +35,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
  	       </c:when>
  	       <c:otherwise>
  	         <c:out value="${user.uname}"></c:out>, 欢迎您!
+ 	          您的积分： <c:out value="${user.uvalue}"></c:out>
+ 	         
  	       </c:otherwise>
  	     </c:choose>
         </div>
@@ -44,7 +46,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <main>
      <s:form action="dd/reward_selectReward"  method="post">
      <div>
- 	      		<tr><td><s:a href="dd/dd_showHabit">返回习惯列表 </s:a></td>
+ 	      		<tr><td><a href="dd/dd_showHabit?user.uname=${user.uname}&user.uvalue=${user.uvalue}">返回习惯列表 </a></td>
  			    <td><s:a href="addreward.jsp">添加奖励 </s:a></td>
  			    <td><s:a href="dd/reward_showReward">显示全部奖励 </s:a></td></tr>
  	      		<button type="submit" class="search-go" value="查询">查询</button>
@@ -65,10 +67,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       			<c:forEach var="reward" items="${rewardList}" varStatus="status">
       			<tr>
       				<th><c:out value="${status.index + 1}"></c:out></th>
-  					<td><a href="dd/reward_showDetail?reward.rid=${reward.rid}"><c:out value="${reward.rcontent}"></c:out></td>
+  					<td><c:out value="${reward.rcontent}"></c:out></td>
   					<td><c:out value="${reward.rvalue}"></c:out></td>
-  					<td><input type="button" value="领取"></td>
-  					<td><a href="dd/reward_showEdit?reward.rid=${reward.rid}">编辑</a></td>
+  					<td><a href="dd/reward_getRe?reward.rid=${reward.rid}&user.uname=${user.uname}">领取</a></td>
 
    					<td><a href="dd/reward_deleteReward?reward.rid=${reward.rid}">删除</a></td>
   				</tr>

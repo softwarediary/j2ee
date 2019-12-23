@@ -42,8 +42,8 @@
      </header>
    <main>
    <table>
-    <tr><td><p>奖励名称</td><td><c:out value="${reward.rcontent}"></c:out></p></td></tr>
-     <tr><td><p>奖励积分</td><td><c:out value="${reward.rvalue}" ></c:out></p></td></tr>
+    <tr><p><td><c:out value="${reward.rcontent}"></c:out></p></td></tr>
+     <tr><p><td><textarea cols="50" rows="5"><c:out value="${reward.rpic}" ></c:out></textarea></p></td></tr>
      <tr><td colspan="3"><s:a href="dd/reward_showReward">返回</s:a></td></tr>
      </table>
      </main>

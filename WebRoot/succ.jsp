@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ taglib uri="/struts-tags" prefix="s"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -16,7 +17,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<meta http-equiv="expires" content="0">    
 	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 	<meta http-equiv="description" content="This is my page">
-	<meta http-equiv="refresh" content="2;url=dd/dd_showHabit?user.uname=${user.uname }">
+	<meta http-equiv="refresh" content="2;url=dd/dd_showHabit?user.uname=${user.uname }&user.uvalue=${user.uvalue}">
 	<!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
