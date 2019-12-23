@@ -19,7 +19,7 @@ public class User implements java.io.Serializable {
 	private String upic;
 	private Integer uvalue;
 	private Set habits = new HashSet(0);
-	private Set rewards = new HashSet(0);
+	private Set urs = new HashSet(0);
 
 	// Constructors
 
@@ -34,8 +34,8 @@ public class User implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public User(Integer tele, String uname, String passwd, String email,
-			String upic, Integer uvalue, Set habits, Set rewards) {
+	public User(Integer tele, String uname, String passwd, String email, String upic, Integer uvalue, Set habits,
+			Set urs) {
 		this.tele = tele;
 		this.uname = uname;
 		this.passwd = passwd;
@@ -43,7 +43,7 @@ public class User implements java.io.Serializable {
 		this.upic = upic;
 		this.uvalue = uvalue;
 		this.habits = habits;
-		this.rewards = rewards;
+		this.urs = urs;
 	}
 
 	// Property accessors
@@ -112,12 +112,12 @@ public class User implements java.io.Serializable {
 		this.habits = habits;
 	}
 
-	public Set getRewards() {
-		return this.rewards;
+	public Set getUrs() {
+		return this.urs;
 	}
 
-	public void setRewards(Set rewards) {
-		this.rewards = rewards;
+	public void setUrs(Set urs) {
+		this.urs = urs;
 	}
 
 }
