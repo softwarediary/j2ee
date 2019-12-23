@@ -1,9 +1,18 @@
 package com.dd.action;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.List;
+import java.util.UUID;
 
 import javax.annotation.Resource;
 
+import org.apache.struts2.ServletActionContext;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
@@ -22,7 +31,9 @@ public class HabitAction extends ActionSupport{
 	
 	private Habit habit;
 	private User user;
-	
+	private File habitPhoto;
+	private String habitPhotoFileName;
+	private String habitPhotoContentType;
 
 	public User getUser() {
 		return user;
@@ -30,6 +41,30 @@ public class HabitAction extends ActionSupport{
 
 	public void setUser(User user) {
 		this.user = user;
+	}
+	
+	public File getHabitPhoto() {
+		return habitPhoto;
+	}
+
+	public void setHabitPhoto(File habitPhoto) {
+		this.habitPhoto = habitPhoto;
+	}
+
+	public String getHabitPhotoFileName() {
+		return habitPhotoFileName;
+	}
+
+	public void setHabitPhotoFileName(String habitPhotoFileName) {
+		this.habitPhotoFileName = habitPhotoFileName;
+	}
+
+	public String getHabitPhotoContentType() {
+		return habitPhotoContentType;
+	}
+
+	public void setHabitPhotoContentType(String habitPhotoContentType) {
+		this.habitPhotoContentType = habitPhotoContentType;
 	}
 
 	public Habit getHabit() {
@@ -49,8 +84,39 @@ public class HabitAction extends ActionSupport{
 	public void setHabitList(List<Habit> habitList) {
 		this.habitList = habitList;
 	}
-	
-	public String addHabit(){
+	 public String showAdd() throws Exception {
+		user=userDao.QueryUserInfo(user.getUname()).get(0);
+		 return "add_view";
+	 }
+	public String addHabit() throws Exception{
+		String path = ServletActionContext.getServletContext().getRealPath("/upload"); 
+        
+        String habitPhotoFileName = ""; 
+   	 	if(habitPhoto!= null) {
+   	 		InputStream is = new FileInputStream(habitPhoto);
+   			String fileContentType = this.getHabitPhotoContentType();
+   			System.out.println(fileContentType);
+   			if(fileContentType.equals("image/jpeg")  || fileContentType.equals("image/pjpeg"))
+   				habitPhotoFileName = UUID.randomUUID().toString() +  ".jpg";
+   			else if(fileContentType.equals("image/gif"))
+   				habitPhotoFileName = UUID.randomUUID().toString() +  ".gif";
+   			else if(fileContentType.equals("image/png"))
+   				habitPhotoFileName = UUID.randomUUID().toString() +  ".png";
+
+   			File file = new File(path, habitPhotoFileName);
+   			OutputStream os = new FileOutputStream(file);
+   			byte[] b = new byte[1024];
+   			int bs = 0;
+   			while ((bs = is.read(b)) > 0) {
+   				os.write(b, 0, bs);
+   			}
+   			is.close();
+   			os.close();
+   	 	}
+        if(habitPhoto != null)
+        	habit.setPic("upload/" + habitPhotoFileName);
+        else
+        	habit.setPic("upload/NoImage.jpg");
 		user=userDao.QueryUserInfo(user.getUname()).get(0);
 		habit.setUser(user);
 		habit.setFinishedNum(0);
@@ -65,7 +131,35 @@ public class HabitAction extends ActionSupport{
 	}
 	
 	 public String editHabit() throws Exception {
-	    	System.out.println("±‡º≠œ∞πﬂ");
+	    	System.out.println("ÁºñËæë‰π†ÊÉØ");
+	    	String path = ServletActionContext.getServletContext().getRealPath("/upload"); 
+
+	        String habitPhotoFileName = ""; 
+	   	 	if(habitPhoto!= null) {
+	   	 		InputStream is = new FileInputStream(habitPhoto);
+	   			String fileContentType = this.getHabitPhotoContentType();
+	   			System.out.println(fileContentType);
+	   			if(fileContentType.equals("image/jpeg")  || fileContentType.equals("image/pjpeg"))
+	   				habitPhotoFileName = UUID.randomUUID().toString() +  ".jpg";
+	   			else if(fileContentType.equals("image/gif"))
+	   				habitPhotoFileName = UUID.randomUUID().toString() +  ".gif";
+	   			else if(fileContentType.equals("image/png"))
+	   				habitPhotoFileName = UUID.randomUUID().toString() +  ".png";
+
+	   			File file = new File(path, habitPhotoFileName);
+	   			OutputStream os = new FileOutputStream(file);
+	   			byte[] b = new byte[1024];
+	   			int bs = 0;
+	   			while ((bs = is.read(b)) > 0) {
+	   				os.write(b, 0, bs);
+	   			}
+	   			is.close();
+	   			os.close();
+	   	 	}
+	        if(habitPhoto != null)
+	        	habit.setPic("upload/" + habitPhotoFileName);
+	        else
+	        	habit.setPic("upload/NoImage.jpg");
 	    	Habit h=habitDao.GetHabitById(habit.getHid());
 	    	user=userDao.QueryUserInfo(user.getUname()).get(0);
 	    	habit.setUser(user);
@@ -77,6 +171,7 @@ public class HabitAction extends ActionSupport{
 		 habit = habitDao.GetHabitById(habit.getHid());
 		 return "edit_view";
 	 }
+	 
 
 	 public String daka() throws Exception {
 		 Habit h=habitDao.GetHabitById(habit.getHid());
@@ -87,7 +182,7 @@ public class HabitAction extends ActionSupport{
 		 user.setUvalue(user.getUvalue()+h.getHvalue());
 		 userDao.updateUser(user);
 		 habitDao.UpdateHabit(h);
-		 System.out.println("≥…π¶¥Úø®“ª∏ˆœ∞πﬂ"+user.getUvalue()+"  hhh");
+		 System.out.println("ÊàêÂäüÊâìÂç°‰∏Ä‰∏™‰π†ÊÉØ"+user.getUvalue()+"  hhh");
 		 return "daka_success";
 	 }
 	 public String deleteHabit() throws Exception {
