@@ -26,12 +26,12 @@ public class UserAction extends ActionSupport implements SessionAware{
 	 */
 	private static final long serialVersionUID = 1L;
 
-	/*ÒµÎñ²ã¶ÔÏó*/
+	/*ä¸šåŠ¡å±‚å¯¹è±¡*/
     @Resource Userdao userdao;
     
     private User user;
     
-    //ÕâÁ½¸ö³ÉÔ±±äÁ¿ÊÇÓÃÀ´×öµÇÂ¼À¹½ØµÄ£¬¼ÇµÃÌí¼ÓsetterºÍgetter
+    //è¿™ä¸¤ä¸ªæˆå‘˜å˜é‡æ˜¯ç”¨æ¥åšç™»å½•æ‹¦æˆªçš„ï¼Œè®°å¾—æ·»åŠ setterå’Œgetter
     
 	private Map<String,Object> session;
 
@@ -63,50 +63,28 @@ public class UserAction extends ActionSupport implements SessionAware{
 		this.errMessage = errMessage;
 	}
 	
-	/*
-	public String reg() throws Exception{
-		customerDao.AddCustomer(customer);
-		session.put("curCustomer", customer);
-		return "show_view";
-		
-	}*/
 	
-    //×¢²á£¬²¢ÔÚsessionÖĞ¼ÓÈëÓÃ»§Ãû
+    //æ³¨å†Œï¼Œå¹¶åœ¨sessionä¸­åŠ å…¥ç”¨æˆ·å
 	public String reg() throws Exception{
+		user.setUvalue(0);
 		userdao.addUser(user);
+		
 		session.put("user", user);
 		return "success";
 
 	}
-    
-	/* ÑéÖ¤ÓÃ»§µÇÂ¼ */
-	/*public String login() {
-		Customer db_customer = (Customer)customerDao.QueryCustomerInfo(customer.getName()).get(0);
-		if(db_customer == null) { 
-			
-			this.errMessage = " ÕËºÅ²»´æÔÚ ";
-			System.out.print(this.errMessage);
-			return INPUT;
-			
-		} else if( !db_customer.getPassword().equals(customer.getPassword())) {
-			
-			this.errMessage = " ÃÜÂë²»ÕıÈ·! ";
-			System.out.print(this.errMessage);
-			return INPUT;
-			
-		}else{
-			return "show_view";
-			
-		}	*/	
+   
 
 	
-		/* ÑéÖ¤ÓÃ»§µÇÂ¼ */
+		/* éªŒè¯ç”¨æˆ·ç™»å½• */
 		public String login() {
 			
 			ArrayList<User> listUser = userdao.QueryUserInfo(user.getUname());
+			 user=listUser.get(0); 
+
 			if(listUser.size()==0) { 
 				
-				this.errMessage = " ÕËºÅ²»´æÔÚ ";
+				this.errMessage = " è´¦å·ä¸å­˜åœ¨ ";
 				System.out.print(this.errMessage);
 				return "input";
 				
@@ -116,7 +94,7 @@ public class UserAction extends ActionSupport implements SessionAware{
 			   User db_user = listUser.get(0);
 				if(!db_user.getPasswd().equals(user.getPasswd())) {
 				
-					this.errMessage = " ÃÜÂë²»ÕıÈ·! ";
+					this.errMessage = " å¯†ç ä¸æ­£ç¡®! ";
 					System.out.print(this.errMessage);
 					return "input";
 				
