@@ -41,20 +41,20 @@
         <div class="logo"></div>		    
      </header>
   <main>
-   <s:form action="dd/dd_editHabit" method="post">
+   <s:form action="dd/dd_editHabit" method="post" enctype="multipart/form-data">
    <table>
    	<s:hidden name="habit.hid"></s:hidden> 
+   	<s><label>习惯图标</label>
+   	<img src="<%=basePath%><s:property value='habit.pic'/>" alt="" width="200px" height="150px"/>
+   	<input type="file" name="habitPhoto"/> </s>
       <s:textfield name="habit.hname" label="习惯名称"></s:textfield>
-      <!-- <s:textfield name="habit.htype" label="习惯类型"></s:textfield>
-      <s:textfield name="habit.fre" label="习惯频率"></s:textfield> -->
-      <s:textfield name="habit.finishedNum" label="打卡次数"></s:textfield>
       <s:textfield name="habit.totalNum" label="目标次数"></s:textfield>
       <s:textfield name="habit.hvalue" label="积分值"></s:textfield>
       <s:textfield name="habit.htext" label="激励语"></s:textfield>  
       <tr><td><input type="hidden" name="user.uname" value="${user.uname }"></td></tr>
       <tr>
       <td colspan="2"><button type="submit" class="login-go">保存 </button></td>
-      <td colspan="3"><a href="dd/dd_showHabit?user.uname=${user.uname }">返回</a></td>
+      <td colspan="3"><a href="dd/dd_showHabit?user.uname=${user.uname }&user.uvalue=${user.uvalue }">返回</a></td>
       </tr>
       </table>
      </s:form>

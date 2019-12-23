@@ -44,12 +44,13 @@
      </header>
    <main>
    <table>
+   <tr><td><p>习惯图标:</td><td><img src="<%=basePath%><s:property value='habit.pic'/>" alt="" width="200px" height="150px"/></p></td></tr>
     <tr><td><p>习惯名称:</td><td><c:out value="${habit.hname}"></c:out></p></td></tr>
      <tr><td><p>打卡次数:</td><td><c:out value="${habit.finishedNum}" ></c:out></p></td></tr>
      <tr><td><p>目标次数:</td><td><c:out value="${habit.totalNum}" ></c:out></p></td></tr>
      <tr><td><p>积分值:</td><td><c:out value="${habit.hvalue}"></c:out></p></td></tr>
      <tr><td><p>激励语:</td><td><c:out value="${habit.htext}"></c:out></p></td></tr>
-     <tr><td colspan="3"><a href="dd/dd_showHabit?user.uname=${user.uname }&user.uvalue=${user.uvalue}">返回</a></td></tr>
+     <tr><td colspan="3"><a href="dd/dd_showHabit?user.uname=${user.uname }">返回</a></td></tr>
      </table>
      </main>
    </body>

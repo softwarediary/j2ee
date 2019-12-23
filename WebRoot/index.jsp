@@ -33,8 +33,7 @@
  	         <a href="login.jsp">登录</a>
  	       </c:when>
  	       <c:otherwise>
- 	         <c:out value="${user.uname}"></c:out>, 欢迎您!
- 	          您的积分： <c:out value="${user.uvalue}"></c:out>
+ 	         <c:out value="${user.uvalue}"></c:out>, 欢迎您!
  	         
  	       </c:otherwise>
  	     </c:choose>
@@ -43,13 +42,11 @@
         <div class="logo"></div>		    
      </header>
      <main>
-   <s:form action="dd/dd_addHabit" method="post">
+   <s:form action="dd/dd_addHabit" method="post" enctype="multipart/form-data">
    <table>
+    <tr><td>习惯图标：<input type="file" name="habitPhoto"/></td></tr>
    	<tr><td>习惯名称：<input type="text" name="habit.hname" ></td></tr>
-   	 <!-- <s:textfield name="habit.htype" label="习惯类型"></s:textfield>
-      <s:textfield name="habit.fre" label="习惯频率"></s:textfield> -->
    	<tr><td>目标打卡次数：<input type="text" name="habit.totalNum" ></td></tr>
-   	<tr><td>目标天数：<input type="text" name="habit.aimdays" ></td></tr>
    	<tr><td>积分值 ：<input type="text" name="habit.hvalue" ></td></tr>
    	<tr><td>激励语 ：<input type="text" name="habit.htext" ></td></tr>
    	<tr><td><input type="hidden" name="user.uname" value="${user.uname }"></td></tr>

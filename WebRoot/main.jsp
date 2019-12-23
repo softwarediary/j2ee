@@ -35,8 +35,9 @@
  	       </c:when>
  	       <c:otherwise>
  	         <c:out value="${user.uname}"></c:out>, 欢迎您!
+ 	  
  	         	您的积分：<c:out value="${user.uvalue}"></c:out>
- 	         
+ 	 
  	       </c:otherwise>
  	     </c:choose>
 
@@ -46,8 +47,8 @@
    	<main>
    		<s:form action="dd/dd_selectHabit" method="post" >
  	      	<div>
- 	      		<tr><td><a href="dd/reward_showReward?user.uname=${user.uname }&user.uvalue=${user.uvalue }">查看奖励 </a></td>
- 			    <td><s:a href="index.jsp">添加习惯</s:a></td>
+ 	      		<tr><td><a href="dd/reward_showReward?user.uname=${user.uname }&user.uvalue=${user.uvalue}">解锁生活奥秘</a></td>
+ 			    <td><a href="dd/dd_showAdd?user.uname=${user.uname}&user.uvalue=${user.uvalue}">添加习惯</a></td>
  			    <td><a href="dd/dd_showHabit?user.uname=${user.uname }">显示全部习惯 </a></td></tr>
  			    <tr><td><input type="hidden" name="user.uname" value="${user.uname }"></td></tr>
  	      		<button type="submit" class="search-go" value="查询">查询</button>
@@ -60,8 +61,8 @@
  				<th>序号</th>
    				<th>习惯名称</th>
    				<th>激励语</th>
-   				<th>已完成次数</th>
-    				<th>奖励积分</th>
+   				<th>打卡次数</th>
+    				<th>打卡可得积分</th>
     				<th></th>
     				<!-- <th><s:a href="index.jsp">添加习惯</s:a></th> -->
    				</tr>

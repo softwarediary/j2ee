@@ -43,8 +43,8 @@
    <main>
    <table>
     <tr><p><td><c:out value="${reward.rcontent}"></c:out></p></td></tr>
-     <tr><p><td><textarea cols="50" rows="5"><c:out value="${reward.rpic}" ></c:out></textarea></p></td></tr>
-     <tr><td colspan="3"><s:a href="dd/reward_showReward">返回</s:a></td></tr>
+     <tr><p><td><textarea cols="90" rows="13"><c:out value="${reward.rpic}" ></c:out></textarea></p></td></tr>
+     <tr><td colspan="3"><a href="dd/reward_showReward?user.uname=${user.uname}&user.uvalue=${user.uvalue}">返回</a></td></tr>
      </table>
      </main>
    </body>
