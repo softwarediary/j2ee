@@ -13,7 +13,7 @@ CREATE TABLE `user` (#用户表
 
 CREATE TABLE `habit` (						#习惯表
   `hid` int(11) NOT NULL AUTO_INCREMENT,	#习惯id
-  
+  `uid` int(11) not null,
   `hname` text,								#习惯名
   `pic` text,								#习惯图标
   `total_num` int(11),			#完成一次该习惯需打卡次数
@@ -25,7 +25,9 @@ CREATE TABLE `habit` (						#习惯表
   `aimdays` int(11),			#目标坚持天数
   `hvalue` int(11) DEFAULT NULL,			#达到一次目标可获得的分值
   `credate` date DEFAULT NULL,				#习惯创建日期
-  PRIMARY KEY (`hid`)
+  PRIMARY KEY (`hid`),
+ CONSTRAINT `uid` FOREIGN KEY (`uid`) REFERENCES `dingdong`.`user` (`uid`) ON DELETE NO ACTION ON UPDATE NO ACTION
+
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `daka` (						#打卡表
@@ -40,12 +42,26 @@ CREATE TABLE `daka` (						#打卡表
 
 CREATE TABLE `reward` (						#奖励表
   `rid` int(11) NOT NULL AUTO_INCREMENT,	#奖励id
-  `uid` int(11) NOT NULL, 				#用户id  
+  `uid` int(11), 				#用户id  
   `rpic` text,								#奖励图标
   `rcontent` text,							#奖励说明
   `rvalue` int(11) DEFAULT NULL,			#兑换奖励所需分值
-  PRIMARY KEY (`rid`),
-    CONSTRAINT `daka_ibfk_2` FOREIGN KEY (`uid`) REFERENCES `user` (`uid`) ON DELETE CASCADE ON UPDATE CASCADE
+  PRIMARY KEY (`rid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `ur` (
+  `user` int(11) DEFAULT NULL,
+  `reward` int(11) DEFAULT NULL,
+  `urid` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`urid`),
+  KEY `u_idx` (`user`),
+  KEY `r_idx` (`reward`),
+  KEY `FKE9D446FB124` (`reward`),
+  KEY `FKE9D40D0E3DC` (`user`),
+  CONSTRAINT `FKE9D40D0E3DC` FOREIGN KEY (`user`) REFERENCES `user` (`uid`),
+  CONSTRAINT `FKE9D446FB124` FOREIGN KEY (`reward`) REFERENCES `reward` (`rid`),
+  CONSTRAINT `r` FOREIGN KEY (`reward`) REFERENCES `reward` (`rid`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `u` FOREIGN KEY (`user`) REFERENCES `user` (`uid`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 		
