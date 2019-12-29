@@ -9,8 +9,8 @@ public class Ur implements java.io.Serializable {
 	// Fields
 
 	private Integer urid;
-	private User user;
 	private Reward reward;
+	private User user;
 
 	// Constructors
 
@@ -19,9 +19,9 @@ public class Ur implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public Ur(User user, Reward reward) {
-		this.user = user;
+	public Ur(Reward reward, User user) {
 		this.reward = reward;
+		this.user = user;
 	}
 
 	// Property accessors
@@ -34,20 +34,20 @@ public class Ur implements java.io.Serializable {
 		this.urid = urid;
 	}
 
-	public User getUser() {
-		return this.user;
-	}
-
-	public void setUser(User user) {
-		this.user = user;
-	}
-
 	public Reward getReward() {
 		return this.reward;
 	}
 
 	public void setReward(Reward reward) {
 		this.reward = reward;
+	}
+
+	public User getUser() {
+		return this.user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 }

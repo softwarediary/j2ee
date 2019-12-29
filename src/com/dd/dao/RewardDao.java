@@ -33,7 +33,7 @@ public class RewardDao {
     public void UpdateReward(Reward reward) throws Exception {
         Session s = factory.getCurrentSession();
         s.update(reward);
-    }
+    }	
 	public ArrayList<Reward> QueryAllReward() {
         Session s = factory.getCurrentSession();
         String hql = "From Reward";

@@ -34,9 +34,16 @@ public class Habit implements java.io.Serializable {
 	public Habit() {
 	}
 
+	/** minimal constructor */
+	public Habit(User user) {
+		this.user = user;
+	}
+
 	/** full constructor */
-	public Habit(User user, String hname, String pic, Integer totalNum, Integer finishedNum, String htype, String fre,
-			String htext, Integer curdays, Integer aimdays, Integer hvalue, Date credate, Set dakas, Set dakas_1) {
+	public Habit(User user, String hname, String pic, Integer totalNum,
+			Integer finishedNum, String htype, String fre, String htext,
+			Integer curdays, Integer aimdays, Integer hvalue, Date credate,
+			Set dakas, Set dakas_1) {
 		this.user = user;
 		this.hname = hname;
 		this.pic = pic;

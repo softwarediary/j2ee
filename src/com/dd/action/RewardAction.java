@@ -82,7 +82,7 @@ public class RewardAction extends ActionSupport{
 		System.out.println("ÒÑÁì¹ý");
 	 return "detail_viewr";
 	}
-	else if(reward.getRvalue()<user.getUvalue()){
+	else if(reward.getRvalue()<user.getUvalue()  || reward.getRvalue()==user.getUvalue()){
 		user.setUvalue(user.getUvalue()-reward.getRvalue());
 		 userDao.updateUser(user);
 		 Ur u=new Ur();

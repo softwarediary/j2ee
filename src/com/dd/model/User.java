@@ -20,6 +20,8 @@ public class User implements java.io.Serializable {
 	private Integer uvalue;
 	private Set habits = new HashSet(0);
 	private Set urs = new HashSet(0);
+	private Set urs_1 = new HashSet(0);
+	private Set habits_1 = new HashSet(0);
 
 	// Constructors
 
@@ -34,8 +36,9 @@ public class User implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public User(Integer tele, String uname, String passwd, String email, String upic, Integer uvalue, Set habits,
-			Set urs) {
+	public User(Integer tele, String uname, String passwd, String email,
+			String upic, Integer uvalue, Set habits, Set urs, Set urs_1,
+			Set habits_1) {
 		this.tele = tele;
 		this.uname = uname;
 		this.passwd = passwd;
@@ -44,6 +47,8 @@ public class User implements java.io.Serializable {
 		this.uvalue = uvalue;
 		this.habits = habits;
 		this.urs = urs;
+		this.urs_1 = urs_1;
+		this.habits_1 = habits_1;
 	}
 
 	// Property accessors
@@ -118,6 +123,22 @@ public class User implements java.io.Serializable {
 
 	public void setUrs(Set urs) {
 		this.urs = urs;
+	}
+
+	public Set getUrs_1() {
+		return this.urs_1;
+	}
+
+	public void setUrs_1(Set urs_1) {
+		this.urs_1 = urs_1;
+	}
+
+	public Set getHabits_1() {
+		return this.habits_1;
+	}
+
+	public void setHabits_1(Set habits_1) {
+		this.habits_1 = habits_1;
 	}
 
 }

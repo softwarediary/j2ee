@@ -26,12 +26,12 @@ public class UserAction extends ActionSupport implements SessionAware{
 	 */
 	private static final long serialVersionUID = 1L;
 
-	/*ä¸šåŠ¡å±‚å¯¹è±¡*/
+	/*ÒµÎñ²ã¶ÔÏó*/
     @Resource Userdao userdao;
     
     private User user;
     
-    //è¿™ä¸¤ä¸ªæˆå‘˜å˜é‡æ˜¯ç”¨æ¥åšç™»å½•æ‹¦æˆªçš„ï¼Œè®°å¾—æ·»åŠ setterå’Œgetter
+    //ÕâÁ½¸ö³ÉÔ±±äÁ¿ÊÇÓÃÀ´×öµÇÂ¼À¹½ØµÄ£¬¼ÇµÃÌí¼ÓsetterºÍgetter
     
 	private Map<String,Object> session;
 
@@ -63,8 +63,15 @@ public class UserAction extends ActionSupport implements SessionAware{
 		this.errMessage = errMessage;
 	}
 	
+	/*
+	public String reg() throws Exception{
+		customerDao.AddCustomer(customer);
+		session.put("curCustomer", customer);
+		return "show_view";
+		
+	}*/
 	
-    //æ³¨å†Œï¼Œå¹¶åœ¨sessionä¸­åŠ å…¥ç”¨æˆ·å
+    //×¢²á£¬²¢ÔÚsessionÖĞ¼ÓÈëÓÃ»§Ãû
 	public String reg() throws Exception{
 		user.setUvalue(0);
 		userdao.addUser(user);
@@ -73,10 +80,29 @@ public class UserAction extends ActionSupport implements SessionAware{
 		return "success";
 
 	}
-   
+    
+	/* ÑéÖ¤ÓÃ»§µÇÂ¼ */
+	/*public String login() {
+		Customer db_customer = (Customer)customerDao.QueryCustomerInfo(customer.getName()).get(0);
+		if(db_customer == null) { 
+			
+			this.errMessage = " ÕËºÅ²»´æÔÚ ";
+			System.out.print(this.errMessage);
+			return INPUT;
+			
+		} else if( !db_customer.getPassword().equals(customer.getPassword())) {
+			
+			this.errMessage = " ÃÜÂë²»ÕıÈ·! ";
+			System.out.print(this.errMessage);
+			return INPUT;
+			
+		}else{
+			return "show_view";
+			
+		}	*/	
 
 	
-		/* éªŒè¯ç”¨æˆ·ç™»å½• */
+		/* ÑéÖ¤ÓÃ»§µÇÂ¼ */
 		public String login() {
 			
 			ArrayList<User> listUser = userdao.QueryUserInfo(user.getUname());
@@ -84,7 +110,7 @@ public class UserAction extends ActionSupport implements SessionAware{
 
 			if(listUser.size()==0) { 
 				
-				this.errMessage = " è´¦å·ä¸å­˜åœ¨ ";
+				this.errMessage = " ÕËºÅ²»´æÔÚ ";
 				System.out.print(this.errMessage);
 				return "input";
 				
@@ -94,7 +120,7 @@ public class UserAction extends ActionSupport implements SessionAware{
 			   User db_user = listUser.get(0);
 				if(!db_user.getPasswd().equals(user.getPasswd())) {
 				
-					this.errMessage = " å¯†ç ä¸æ­£ç¡®! ";
+					this.errMessage = " ÃÜÂë²»ÕıÈ·! ";
 					System.out.print(this.errMessage);
 					return "input";
 				

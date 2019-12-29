@@ -131,7 +131,7 @@ public class HabitAction extends ActionSupport{
 	}
 	
 	 public String editHabit() throws Exception {
-	    	System.out.println("编辑习惯");
+	    	System.out.println("�༭ϰ��");
 	    	String path = ServletActionContext.getServletContext().getRealPath("/upload"); 
 
 	        String habitPhotoFileName = ""; 
@@ -168,6 +168,7 @@ public class HabitAction extends ActionSupport{
 	        return "edit_message";
 	    }
 	 public String showEdit() throws Exception {
+		 user=userDao.QueryUserInfo(user.getUname()).get(0);
 		 habit = habitDao.GetHabitById(habit.getHid());
 		 return "edit_view";
 	 }
@@ -182,7 +183,7 @@ public class HabitAction extends ActionSupport{
 		 user.setUvalue(user.getUvalue()+h.getHvalue());
 		 userDao.updateUser(user);
 		 habitDao.UpdateHabit(h);
-		 System.out.println("成功打卡一个习惯"+user.getUvalue()+"  hhh");
+		 System.out.println("�ɹ���һ��ϰ��"+user.getUvalue()+"  hhh");
 		 return "daka_success";
 	 }
 	 public String deleteHabit() throws Exception {
@@ -205,6 +206,7 @@ public class HabitAction extends ActionSupport{
 	 }
 	 
 	 public String showDetail(){
+		 user=userDao.QueryUserInfo(user.getUname()).get(0);
 		 habit=habitDao.GetHabitById(habit.getHid());
 		 return "detail_view";
 	 }

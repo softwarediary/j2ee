@@ -17,6 +17,7 @@ public class Reward implements java.io.Serializable {
 	private Integer rvalue;
 	private Integer uid;
 	private Set urs = new HashSet(0);
+	private Set urs_1 = new HashSet(0);
 
 	// Constructors
 
@@ -25,12 +26,14 @@ public class Reward implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public Reward(String rpic, String rcontent, Integer rvalue, Integer uid, Set urs) {
+	public Reward(String rpic, String rcontent, Integer rvalue, Integer uid,
+			Set urs, Set urs_1) {
 		this.rpic = rpic;
 		this.rcontent = rcontent;
 		this.rvalue = rvalue;
 		this.uid = uid;
 		this.urs = urs;
+		this.urs_1 = urs_1;
 	}
 
 	// Property accessors
@@ -81,6 +84,14 @@ public class Reward implements java.io.Serializable {
 
 	public void setUrs(Set urs) {
 		this.urs = urs;
+	}
+
+	public Set getUrs_1() {
+		return this.urs_1;
+	}
+
+	public void setUrs_1(Set urs_1) {
+		this.urs_1 = urs_1;
 	}
 
 }
