@@ -11,7 +11,7 @@
    <head>
      <base href="<%=basePath%>">
 
-     <title>My JSP 'index.jsp' starting page</title>
+     <title>编辑奖励</title>
  	<meta http-equiv="pragma" content="no-cache">
  	<meta http-equiv="cache-control" content="no-cache">
  	<meta http-equiv="expires" content="0">    
@@ -19,6 +19,7 @@
  	<meta http-equiv="description" content="This is my page">
 
  	<link rel="stylesheet" type="text/css" href="css/main.css">
+<link rel="shortcut icon" href="<%=basePath%>images/dd.png">
 
    </head>
 
@@ -31,7 +32,8 @@
  	         <a href="login.jsp">登录</a>
  	       </c:when>
  	       <c:otherwise>
- 	         <c:out value="${user.uname}"></c:out>, 欢迎您!
+ 	         <c:out value="${user.uname}"></c:out>, 欢迎您!&nbsp;&nbsp;&nbsp;&nbsp;
+ 	         	<a href="login.jsp">退出登录</a>
  	       </c:otherwise>
  	     </c:choose>
 

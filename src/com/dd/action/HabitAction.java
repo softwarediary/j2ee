@@ -67,6 +67,7 @@ public class HabitAction extends ActionSupport{
 		this.habitPhotoContentType = habitPhotoContentType;
 	}
 
+
 	public Habit getHabit() {
 		return habit;
 	}
@@ -131,7 +132,7 @@ public class HabitAction extends ActionSupport{
 	}
 	
 	 public String editHabit() throws Exception {
-	    	System.out.println("�༭ϰ��");
+		 System.out.println("编辑习惯");
 	    	String path = ServletActionContext.getServletContext().getRealPath("/upload"); 
 
 	        String habitPhotoFileName = ""; 

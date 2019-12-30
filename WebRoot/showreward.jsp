@@ -18,8 +18,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<meta http-equiv="expires" content="0">    
 	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 	<meta http-equiv="description" content="This is my page">
-	<link rel="stylesheet" type="text/css" href="<%=basePath%>css/main.css">
-	
+	<link rel="stylesheet" type="text/css" href="<%=basePath%>css/login.css">
+	<link rel="shortcut icon" href="<%=basePath%>images/dd.png">
 	<!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
@@ -35,7 +35,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
  	       </c:when>
  	       <c:otherwise>
  	         <c:out value="${user.uname}"></c:out>, 欢迎您!
- 	          您的积分： <c:out value="${user.uvalue}"></c:out>
+ 	          您的积分： <c:out value="${user.uvalue}"></c:out>&nbsp;&nbsp;&nbsp;&nbsp;
+ 	         	<a href="login.jsp">退出登录</a>
  	         
  	       </c:otherwise>
  	     </c:choose>
@@ -47,7 +48,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
      <s:form action="dd/reward_selectReward"  method="post">
      <div>
  	      		<tr><td><a href="dd/dd_showHabit?user.uname=${user.uname}&user.uvalue=${user.uvalue}">返回习惯列表 </a></td>
- 			    <td><s:a href="dd/reward_showReward">显示全部 </s:a></td></tr>
+ 			    <td><a href="dd/reward_showReward?user.uname=${user.uname }&user.uvalue=${user.uvalue}">显示全部 </a></td></tr>
  	      		<button type="submit" class="search-go" value="查询">查询</button>
  	      		<input class="search" type="text" name="rname" placeholder="请输入关键词">
 

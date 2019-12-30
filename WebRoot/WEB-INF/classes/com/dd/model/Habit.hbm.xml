@@ -10,6 +10,9 @@
             <column name="hid" />
             <generator class="increment"></generator>
         </id>
+        <many-to-one name="user" class="com.dd.model.User" fetch="select" lazy="false">
+            <column name="uid" not-null="true" />
+        </many-to-one>
         <property name="hname" type="java.lang.String">
             <column name="hname" length="65535" />
         </property>
@@ -22,32 +25,11 @@
         <property name="finishedNum" type="java.lang.Integer">
             <column name="finished_num" />
         </property>
-        <property name="htype" type="java.lang.String">
-            <column name="htype" length="65535" />
-        </property>
-        <property name="fre" type="java.lang.String">
-            <column name="fre" length="65535" />
-        </property>
         <property name="htext" type="java.lang.String">
             <column name="htext" length="65535" />
-        </property>
-        <property name="curdays" type="java.lang.Integer">
-            <column name="curdays" />
-        </property>
-        <property name="aimdays" type="java.lang.Integer">
-            <column name="aimdays" />
         </property>
         <property name="hvalue" type="java.lang.Integer">
             <column name="hvalue" />
         </property>
-        <property name="credate" type="java.util.Date">
-            <column name="credate" length="10" />
-        </property>
-        <set name="dakas" inverse="true">
-            <key>
-                <column name="hid" not-null="true" />
-            </key>
-            <one-to-many class="com.dd.model.Daka" />
-        </set>
     </class>
 </hibernate-mapping>

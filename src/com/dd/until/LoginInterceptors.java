@@ -81,7 +81,7 @@ public class LoginInterceptors extends AbstractInterceptor{
 	                 HttpServletRequest req = ServletActionContext.getRequest();  
 
 	                 // 获取此请求的地址 ，也就是获取拦截前要跳转的地址，进行跳转
-	                 String path = req.getRequestURI().replaceAll("/foodProject", "");
+	                 String path = req.getRequestURI().replaceAll("/dd", "");
 	                 System.out.println("path:" + path);
 	        
 	                 // 存入session，这个参数在struts.xml中会作为参数出现  

@@ -11,7 +11,7 @@
    <head>
      <base href="<%=basePath%>">
 
-     <title>My JSP 'habitdetail.jsp' starting page</title>
+     <title>习惯详情</title>
 
  	<meta http-equiv="pragma" content="no-cache">
  	<meta http-equiv="cache-control" content="no-cache">
@@ -19,8 +19,9 @@
  	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
  	<meta http-equiv="description" content="This is my page">
 
- 	<link rel="stylesheet" type="text/css" href="css/main.css">
-
+ 	<link rel="stylesheet" type="text/css" href="css/login.css">
+	<link rel="shortcut icon" href="<%=basePath%>images/dd.png">
+	
 
    </head>
 
@@ -34,7 +35,8 @@
  	       </c:when>
  	       <c:otherwise>
  	         <c:out value="${user.uname}"></c:out>, 欢迎您!
- 	         您的积分：<c:out value="${user.uvalue}"></c:out>
+ 	         您的积分：<c:out value="${user.uvalue}"></c:out>&nbsp;&nbsp;&nbsp;&nbsp;
+ 	         	<a href="login.jsp">退出登录</a>
  	         
  	       </c:otherwise>
  	     </c:choose>
@@ -44,13 +46,13 @@
      </header>
    <main>
    <table>
-   <tr><td><p>习惯图标:</td><td><img src="<%=basePath%><s:property value='habit.pic'/>" alt="" width="200px" height="150px"/></p></td></tr>
-    <tr><td><p>习惯名称:</td><td><c:out value="${habit.hname}"></c:out></p></td></tr>
-     <tr><td><p>打卡次数:</td><td><c:out value="${habit.finishedNum}" ></c:out></p></td></tr>
-     <tr><td><p>目标次数:</td><td><c:out value="${habit.totalNum}" ></c:out></p></td></tr>
-     <tr><td><p>积分值:</td><td><c:out value="${habit.hvalue}"></c:out></p></td></tr>
-     <tr><td><p>激励语:</td><td><c:out value="${habit.htext}"></c:out></p></td></tr>
-     <tr><td colspan="3"><a href="dd/dd_showHabit?user.uname=${user.uname }">返回</a></td></tr>
+ 	<tr><td>习惯图标:</td><td><img src="<%=basePath%><s:property value='habit.pic'/>" alt="" width="200px" height="150px"/></td></tr>
+    <tr><td>习惯名称:</td><td><c:out value="${habit.hname}"></c:out></td></tr>
+     <tr><td>打卡次数:</td><td><c:out value="${habit.finishedNum}" ></c:out></td></tr>
+     <tr><td>目标次数:</td><td><c:out value="${habit.totalNum}" ></c:out></td></tr>
+     <tr><td>积分值:</td><td><c:out value="${habit.hvalue}"></c:out></td></tr>
+     <tr><td>激励语:</td><td><c:out value="${habit.htext}"></c:out></td></tr>
+     <tr><td></td><td></td><td colspan="3"><a href="dd/dd_showHabit?user.uname=${user.uname }&user.uvalue=${user.uvalue}">返回</a></td></tr>
      </table>
      </main>
    </body>

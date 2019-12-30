@@ -29,10 +29,10 @@ public class UserAction extends ActionSupport implements SessionAware{
 	/*业务层对象*/
     @Resource Userdao userdao;
     
-    private User user;
+    private String prePage;
     
     //这两个成员变量是用来做登录拦截的，记得添加setter和getter
-    
+    private User user;
 	private Map<String,Object> session;
 
 	public User getUser() {
@@ -75,9 +75,8 @@ public class UserAction extends ActionSupport implements SessionAware{
 	public String reg() throws Exception{
 		user.setUvalue(0);
 		userdao.addUser(user);
-		
 		session.put("user", user);
-		return "success";
+		return "successreg";
 
 	}
     
@@ -106,8 +105,9 @@ public class UserAction extends ActionSupport implements SessionAware{
 		public String login() {
 			
 			ArrayList<User> listUser = userdao.QueryUserInfo(user.getUname());
-			 user=listUser.get(0); 
-
+			 //user=listUser.get(0); 
+			 
+			 System.out.print("输入密码="+user.getPasswd());
 			if(listUser.size()==0) { 
 				
 				this.errMessage = " 账号不存在 ";
@@ -118,18 +118,26 @@ public class UserAction extends ActionSupport implements SessionAware{
 			else{
 				
 			   User db_user = listUser.get(0);
+			   System.out.print("用户密码="+db_user.getPasswd());
 				if(!db_user.getPasswd().equals(user.getPasswd())) {
-				
 					this.errMessage = " 密码不正确! ";
 					System.out.print(this.errMessage);
 					return "input";
 				
 			    }else{
-				
+			    	user=listUser.get(0);
 					session.put("user", db_user);
-					return "succseereg";
+					return "success";
 			    }
 			}
+		}
+
+		public String getPrePage() {
+			return prePage;
+		}
+
+		public void setPrePage(String prePage) {
+			this.prePage = prePage;
 		}
 
 

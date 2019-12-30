@@ -8,7 +8,7 @@
     <class name="com.dd.model.User" table="user" catalog="dingdong">
         <id name="uid" type="java.lang.Integer">
             <column name="uid" />
-            <generator class="increment"></generator>
+            <generator class="identity" />
         </id>
         <property name="tele" type="java.lang.Integer">
             <column name="tele" not-null="true" />
@@ -18,12 +18,6 @@
         </property>
         <property name="passwd" type="java.lang.String">
             <column name="passwd" length="15" not-null="true" />
-        </property>
-        <property name="email" type="java.lang.String">
-            <column name="email" length="65535" />
-        </property>
-        <property name="upic" type="java.lang.String">
-            <column name="upic" length="65535" />
         </property>
         <property name="uvalue" type="java.lang.Integer">
             <column name="uvalue" />
@@ -45,12 +39,6 @@
                 <column name="user" />
             </key>
             <one-to-many class="com.dd.model.Ur" />
-        </set>
-        <set name="habits_1" inverse="true">
-            <key>
-                <column name="uid" not-null="true" />
-            </key>
-            <one-to-many class="com.dd.model.Habit" />
         </set>
     </class>
 </hibernate-mapping>

@@ -17,14 +17,8 @@
  	<meta http-equiv="expires" content="0">    
  	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
  	<meta http-equiv="description" content="This is my page">
-
- 	<link rel="stylesheet" href="<%=basePath%>css/bootstrap.min.css">
- 	<link rel="stylesheet" type="text/css" href="<%=basePath%>css/font-awesome.css">
- 	<link rel="stylesheet" type="text/css" href="<%=basePath%>css/main.css">
- 	<!-- ------------以下这个css是bootstrap Validator插件的css-------------- -->
- 	<link rel="stylesheet" type="text/css" href="<%=basePath%>css/bootstrapValidator.css">
-
- 	<link rel="shortcut icon" href="<%=basePath%>images/logo.png">
+ 	<link rel="stylesheet" type="text/css" href="<%=basePath%>css/login.css">
+ 	<link rel="shortcut icon" href="<%=basePath%>images/dd.png">
 
    </head>
 
@@ -42,7 +36,7 @@
  	    <table>
 
  	        <tr><td>用户名：<input type="text" name="user.uname" placeholder="请输入用户名"></td></tr>
-      		<tr><td>密 码：<input type="text" name="user.passwd" placeholder="请输入密码"></td></tr>
+      		<tr><td>密 &nbsp;&nbsp;码：<input type="text" name="user.passwd" placeholder="请输入密码"></td></tr>
       		<tr><td>手机号：<input type="text" name="user.tele" placeholder="请输入手机号"></td></tr>
       		<tr><td><button type="submit" class="login-go">注册 </button></td></tr>
 

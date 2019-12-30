@@ -10,7 +10,7 @@
             <column name="did" />
             <generator class="increment"></generator>
         </id>
-        <many-to-one name="habit" class="com.dd.model.Habit" fetch="select" lazy="false">
+        <many-to-one name="habit" class="com.dd.model.Habit" fetch="select">
             <column name="hid" not-null="true" />
         </many-to-one>
         <property name="dakadate" type="java.util.Date">

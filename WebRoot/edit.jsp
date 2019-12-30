@@ -13,15 +13,16 @@
    <head>
      <base href="<%=basePath%>">
 
-     <title>My JSP 'index.jsp' starting page</title>
+     <title>习惯编辑</title>
  	<meta http-equiv="pragma" content="no-cache">
  	<meta http-equiv="cache-control" content="no-cache">
  	<meta http-equiv="expires" content="0">    
  	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
  	<meta http-equiv="description" content="This is my page">
 
- 	<link rel="stylesheet" type="text/css" href="css/main.css">
-
+ 	<link rel="stylesheet" type="text/css" href="css/login.css">
+	<link rel="shortcut icon" href="<%=basePath%>images/dd.png">
+	
    </head>
 
    <body>
@@ -33,7 +34,8 @@
  	         <a href="login.jsp">登录</a>
  	       </c:when>
  	       <c:otherwise>
- 	         <c:out value="${user.uname}"></c:out>, 欢迎您!
+ 	         <c:out value="${user.uname}"></c:out>, 欢迎您!&nbsp;&nbsp;&nbsp;&nbsp;
+ 	         	<a href="login.jsp">退出登录</a>
  	       </c:otherwise>
  	     </c:choose>
 
@@ -44,9 +46,10 @@
    <s:form action="dd/dd_editHabit" method="post" enctype="multipart/form-data">
    <table>
    	<s:hidden name="habit.hid"></s:hidden> 
-   	<s><label>习惯图标</label>
-   	<img src="<%=basePath%><s:property value='habit.pic'/>" alt="" width="200px" height="150px"/>
-   	<input type="file" name="habitPhoto"/> </s>
+
+   <tr>	<td>
+   	<img src="<%=basePath%><s:property value='habit.pic'/>" alt="" width="200px" height="150px" title="习惯图标"/></td><td>
+   	<input type="file" name="habitPhoto"/> </td></tr>
       <s:textfield name="habit.hname" label="习惯名称"></s:textfield>
       <s:textfield name="habit.totalNum" label="目标次数"></s:textfield>
       <s:textfield name="habit.hvalue" label="积分值"></s:textfield>

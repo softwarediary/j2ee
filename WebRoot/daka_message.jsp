@@ -9,7 +9,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>My JSP 'message.jsp' starting page</title>
+    <title>打卡成功！</title>
     
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
@@ -20,10 +20,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
+<link rel="shortcut icon" href="<%=basePath%>images/dd.png">
 
   </head>
   
   <body>
-打卡成功！
+<h1 align="center">打卡成功！</h1>
   </body>
 </html>

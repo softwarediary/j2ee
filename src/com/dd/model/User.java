@@ -15,13 +15,10 @@ public class User implements java.io.Serializable {
 	private Integer tele;
 	private String uname;
 	private String passwd;
-	private String email;
-	private String upic;
 	private Integer uvalue;
 	private Set habits = new HashSet(0);
 	private Set urs = new HashSet(0);
 	private Set urs_1 = new HashSet(0);
-	private Set habits_1 = new HashSet(0);
 
 	// Constructors
 
@@ -36,19 +33,15 @@ public class User implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public User(Integer tele, String uname, String passwd, String email,
-			String upic, Integer uvalue, Set habits, Set urs, Set urs_1,
-			Set habits_1) {
+	public User(Integer tele, String uname, String passwd, Integer uvalue,
+			Set habits, Set urs, Set urs_1) {
 		this.tele = tele;
 		this.uname = uname;
 		this.passwd = passwd;
-		this.email = email;
-		this.upic = upic;
 		this.uvalue = uvalue;
 		this.habits = habits;
 		this.urs = urs;
 		this.urs_1 = urs_1;
-		this.habits_1 = habits_1;
 	}
 
 	// Property accessors
@@ -85,22 +78,6 @@ public class User implements java.io.Serializable {
 		this.passwd = passwd;
 	}
 
-	public String getEmail() {
-		return this.email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public String getUpic() {
-		return this.upic;
-	}
-
-	public void setUpic(String upic) {
-		this.upic = upic;
-	}
-
 	public Integer getUvalue() {
 		return this.uvalue;
 	}
@@ -131,14 +108,6 @@ public class User implements java.io.Serializable {
 
 	public void setUrs_1(Set urs_1) {
 		this.urs_1 = urs_1;
-	}
-
-	public Set getHabits_1() {
-		return this.habits_1;
-	}
-
-	public void setHabits_1(Set habits_1) {
-		this.habits_1 = habits_1;
 	}
 
 }
