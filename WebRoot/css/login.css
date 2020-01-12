@@ -8,12 +8,7 @@ body{
  	font-size:16px;
  	height: 100%;
     margin: 0;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
- 	background: -webkit-linear-gradient(#FFA07A, white); /* Safari 5.1 - 6.0 */
-    background: -o-linear-gradient(#FFA07A, white); /* Opera 11.1 - 12.0 */
-    background: -moz-linear-gradient(#FFA07A, white); /* Firefox 3.6 - 15 */
-    background: linear-gradient(#FFA07A, white); /* 标准的语法（必须放在最后） */
+   
  }
   a{
  	color: #777;
